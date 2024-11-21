@@ -50,4 +50,9 @@ public class AdminServiceImpl implements AdminService{
     public List<TaskDTO> getAllTask() {
         return taskRepository.findAll().stream().sorted(Comparator.comparing(Task::getDueDate).reversed()).map(Task::getTaskDTO).collect(Collectors.toList());
     }
+
+    @Override
+    public void deleteTask(Long id) {
+        taskRepository.deleteById(id);
+    }
 }
