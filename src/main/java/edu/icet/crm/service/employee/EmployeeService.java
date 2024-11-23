@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface EmployeeService {
     List<TaskDTO> getTaskByUserId();
+    TaskDTO updateTask(Long id, String status);
 }
