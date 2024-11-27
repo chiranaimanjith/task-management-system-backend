@@ -1,5 +1,6 @@
 package edu.icet.crm.service.admin;
 
+import edu.icet.crm.model.CommentDTO;
 import edu.icet.crm.model.TaskDTO;
 import edu.icet.crm.model.UserDto;
 
@@ -13,4 +14,5 @@ public interface AdminService {
     TaskDTO getTaskById(Long id);
     TaskDTO updateTask(Long id, TaskDTO taskDTO);
     List<TaskDTO> searchTaskByTitle(String title);
+    CommentDTO createComment(Long taskId, String content);
 }

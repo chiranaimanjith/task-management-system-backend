@@ -1,5 +1,6 @@
 package edu.icet.crm.controller.admin;
 
+import edu.icet.crm.model.CommentDTO;
 import edu.icet.crm.model.TaskDTO;
 import edu.icet.crm.service.admin.AdminService;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,13 @@ public class AdminController {
       TaskDTO createdTaskDTO =adminService.createTask(taskDTO);
       if (createdTaskDTO==null)return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
       return ResponseEntity.status(HttpStatus.CREATED).body(createdTaskDTO);
+    }
+
+    @PostMapping("/task/comment/{taskId}")
+    public ResponseEntity<CommentDTO> createComment(@PathVariable Long taskId, @RequestBody String content){
+        CommentDTO createdCommentDTO =adminService.createComment(taskId, content);
+        if (createdCommentDTO==null)return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdCommentDTO);
     }
 
     @GetMapping("/tasks")
