@@ -30,7 +30,7 @@ public class AdminController {
     }
 
     @PostMapping("/task/comment/{taskId}")
-    public ResponseEntity<CommentDTO> createComment(@PathVariable Long taskId, @RequestBody String content){
+    public ResponseEntity<CommentDTO> createComment(@PathVariable Long taskId, @RequestParam String content){
         CommentDTO createdCommentDTO =adminService.createComment(taskId, content);
         if (createdCommentDTO==null)return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         return ResponseEntity.status(HttpStatus.CREATED).body(createdCommentDTO);
