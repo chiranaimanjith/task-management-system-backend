@@ -11,9 +11,9 @@ public interface AdminService {
     TaskDTO createTask(TaskDTO taskDTO);
     List<TaskDTO> getAllTask();
     void deleteTask(Long id);
-    TaskDTO getTaskById(Long id);
     TaskDTO updateTask(Long id, TaskDTO taskDTO);
     List<TaskDTO> searchTaskByTitle(String title);
+    TaskDTO getTaskById(Long id);
     CommentDTO createComment(Long taskId, String content);
     List<CommentDTO> getCommentsByTaskId(Long taskId);
 }
