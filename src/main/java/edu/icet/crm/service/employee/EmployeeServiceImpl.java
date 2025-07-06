@@ -74,7 +74,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<CommentDTO> getCommentsByTaskId(Long taskId) {
         return commentRepository.findAllByTaskId(taskId).stream().map(Comment::getCommentDTO).collect(Collectors.toList());
     }
-
     private TaskStatus mapStringToTaskStatus(String status){
         return switch (status){
             case "PENDING" -> TaskStatus.PENDING;
